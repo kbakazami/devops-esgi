@@ -1,0 +1,26 @@
+version: "3"
+services:
+  app:
+   build: ./python/
+   depends_on:
+     - db
+  db:
+    build: ./mysql/
+    restart: always
+    environment:
+      MYSQL_DATABASE: "iterator-db"
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - "3307:3307"
+  web:
+    container_name: webserver
+    image: nginx
+    volumes:
+      - ./src:/usr/share/nginx
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80
+
+
