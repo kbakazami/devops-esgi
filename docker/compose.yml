@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    build: "./node"
+    command: nodemon app.js
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+
+  mysql:
+    build: "./mysql"
