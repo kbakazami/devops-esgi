@@ -1,0 +1,12 @@
+---
+- name: "Start ansible"
+  hosts: localhost
+
+  tasks:
+    - name: Create mysql
+      state: started
+      community:
+        general:
+          docker_image:
+            build:
+              path: ./docker/mysql
