@@ -8,5 +8,6 @@
       community:
         general:
           docker_image:
+            name: Mysql
             build:
               path: ./docker/mysql
