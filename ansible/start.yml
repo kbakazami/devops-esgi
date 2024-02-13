@@ -5,5 +5,9 @@
   tasks:
     - name: Create mysql
       docker_image:
-        name: Mysql
-        build: ./docker/mysql
+        name: mysql
+        build:
+          path: ../docker/mysql/
+          args:
+            listen_port: 8080
+        source: build
