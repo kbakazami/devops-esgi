@@ -4,10 +4,19 @@
 
   tasks:
     - name: Create mysql
-      docker_image:
-        name: mysql
-        build:
-          path: ../docker/mysql/
-          args:
-            listen_port: 8080
-        source: build
+
+      debug:
+        msg: "Debug"
+
+#docker compose
+#        community.docker.docker_compose:
+#        project_src: ../docker/
+#        state: present
+
+#docker image
+#        name: mysql
+#        build:
+#          path: ../docker/mysql/
+#          args:
+#            listen_port: 8080
+#        source: build
