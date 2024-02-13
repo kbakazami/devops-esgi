@@ -4,10 +4,6 @@
 
   tasks:
     - name: Create mysql
-      state: started
-      community:
-        general:
-          docker_image:
-            name: Mysql
-            build:
-              path: ./docker/mysql
+      docker_image:
+        name: Mysql
+        build: ./docker/mysql
