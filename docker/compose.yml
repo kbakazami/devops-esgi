@@ -1,12 +1,23 @@
-version: "3"
+version: '3.8'
 services:
-  app:
-    build: "./node"
-    command: nodemon app.js
+  mysql:
+    build: mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  adminer:
+    image: adminer
+    restart: always
     ports:
       - "8080:8080"
-    volumes:
-      - .:/app
 
-  mysql:
-    build: "./mysql"
+  app:
+    depends_on:
+      - mysql
+    build: node/
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+
+
